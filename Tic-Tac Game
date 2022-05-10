@@ -1,0 +1,204 @@
+#include"stdafx.h"
+#include<iostream> 
+#include<iomanip>
+#include<stdlib.h>
+
+
+using namespace std;
+
+void userEntry(char arr[] ,char indexArray[], int n ,char x)
+{
+	if(n>=1 && n<=9 && indexArray[n-1]!=32)
+	{ 
+		arr[n-1] = x ;
+		indexArray[n-1] = 32 ; 
+	} 
+	else
+	{
+		cout<<"You are overwriting the input"<<endl;
+	}
+}
+
+void display_Grid(char io_Array[] , char indexArray[] )
+{
+
+	cout<<setw(1)<<"|"<<setw(1)<<io_Array[0]<<setw(1)<<"|"<<setw(1)<<io_Array[1]<<setw(1)<<"|"<<setw(1)<<io_Array[2]<<setw(1)<<"|"<<setw(10)<<"|"<<setw(1)<<indexArray[0]<<setw(1)<<"|"<<setw(1)<<indexArray[1]<<setw(1)<<"|"<<setw(1)<<indexArray[2]<<setw(1)<<"|"<<endl;
+	
+	cout<<setw(1)<<"|"<<setw(1)<<io_Array[3]<<setw(1)<<"|"<<setw(1)<<io_Array[4]<<setw(1)<<"|"<<setw(1)<<io_Array[5]<<setw(1)<<"|"<<setw(10)<<"|"<<setw(1)<<indexArray[3]<<setw(1)<<"|"<<setw(1)<<indexArray[4]<<setw(1)<<"|"<<setw(1)<<indexArray[5]<<setw(1)<<"|"<<endl;
+	
+	cout<<setw(1)<<"|"<<setw(1)<<io_Array[6]<<setw(1)<<"|"<<setw(1)<<io_Array[7]<<setw(1)<<"|"<<setw(1)<<io_Array[8]<<setw(1)<<"|"<<setw(10)<<"|"<<setw(1)<<indexArray[6]<<setw(1)<<"|"<<setw(1)<<indexArray[7]<<setw(1)<<"|"<<setw(1)<<indexArray[8]<<setw(1)<<"|"<<endl;
+
+}
+
+bool isSimiliar(char arr[], int a , int b , int c)
+{
+	if(arr[a-1] == arr[b-1] && arr[b-1] == arr[c-1] )
+		return true ;
+	else 
+		return false ; 
+}
+
+bool check( char indexArray[])
+{
+	int flag = 0 ;
+
+	for(int i = 0 ; i < 9 ; i++)
+	{
+		if( indexArray[i] == 32)
+			flag++; 
+	}
+
+	if (flag < 8)
+		return false ;
+	else 
+		return true ; 
+
+}
+
+int validate(char io_Array[], char indexArray[])
+{
+	if(isSimiliar(io_Array,1,2,3)) 
+	{	
+		if(io_Array[0] == 'X')
+			return 1 ;
+		else if(io_Array[0] == 'O')
+			return 2;
+	}
+	else if(isSimiliar(io_Array,1,4,7)) 
+	{	
+		if(io_Array[0] == 'X')
+			return 1 ;
+		else if(io_Array[0] == 'O')
+			return 2 ;
+	}
+	else if(isSimiliar(io_Array,4,5,6)) 
+	{	
+		if(io_Array[3] == 'X')
+			return 1 ;
+		else if(io_Array[3] == 'O')
+			return 2 ;
+	}
+	else if(isSimiliar(io_Array,7,8,9)) 
+	{	
+		if(io_Array[6] == 'X')
+			return 1 ;
+		else if(io_Array[6] == 'O')
+			return 2 ;
+	}
+	else if(isSimiliar(io_Array,2,5,8)) 
+	{	
+		if(io_Array[1] == 'X')
+			return 1 ;
+		else if(io_Array[1] == 'O')
+			return 2 ;
+	}
+	else if(isSimiliar(io_Array,3,6,9)) 
+	{	
+		if(io_Array[2] == 'X')
+			return 1 ;
+		else if(io_Array[2] == 'O')
+			return 2 ;
+	}
+	else if(isSimiliar(io_Array,1,5,9)) 
+	{	
+		if(io_Array[0] == 'X')
+			return 1 ;
+		else if(io_Array[0] == 'O')
+			return 2 ;
+	}
+	else if(isSimiliar(io_Array,3,5,7)) 
+	{	
+		if(io_Array[2] == 'X')
+			return 1 ;
+		else if(io_Array[2] == 'O')
+			return 2 ;
+	}
+	else if(check(indexArray))
+	{
+		cout<<"The match is Draw "<<endl ; 
+		return 3 ; 
+	}
+
+}
+
+
+int main()
+{
+	char io_Array[9]  ; 
+	int n ; 
+	char indexArray[9] ;
+	
+	for(int i = 0 ; i < 9 ; i++) { indexArray[i] = 49 + i ; }
+	
+	for(int i = 0 ; i < 9 ; i++) { io_Array[i] = ' ' ;}
+	
+	display_Grid(io_Array, indexArray ) ;
+
+	int count = 0 ; 
+
+	while(count<9)
+	{
+	cout<<"\n-------USER - 1 --------"<<endl; 
+	cout<<"Enter the posion where you want update the your Mark = " ;
+	cin>> n ; 
+	userEntry(io_Array,indexArray, n , 'X') ;
+	system("cls") ;
+	display_Grid(io_Array,indexArray ) ;
+	count++ ; 
+
+	if(count>=5)
+	{
+		if( validate(io_Array, indexArray) == 1 )  
+		{ 
+			cout<<" USER 1 won the Match "<<endl ; 
+			break ;
+		}
+		 
+		if( validate(io_Array, indexArray) == 2 ) 
+		{ 
+			cout<<" USER 2 won the Match "<<endl ;
+			break ;  
+		}
+		
+		if( validate(io_Array, indexArray) == 3 )  
+		{ 
+			cout<<" The match is DRAW "<<endl ;
+			break ; 
+		}
+		
+	}
+
+	cout<<"\n-------USER - 2 --------"<<endl; 
+	cout<<"Enter the posion where you want update the your Mark = " ;
+	cin>> n ; 
+	userEntry(io_Array,indexArray, n , 'O') ;
+	system("cls") ;
+	display_Grid( io_Array,indexArray);
+	count++ ; 
+
+	if(count>=5)
+	{
+		if( validate(io_Array, indexArray) == 1 )  
+		{ 
+			cout<<" USER 1 won the Match "<<endl ; 
+			break ;
+		}
+		 
+		if( validate(io_Array, indexArray) == 2 ) 
+		{ 
+			cout<<" USER 2 won the Match "<<endl ;
+			break ;  
+		}
+		
+		if( validate(io_Array, indexArray) == 3 )  
+		{ 
+			cout<<" The match is DRAW "<<endl ;
+			break ; 
+		}
+		
+	}
+
+	}
+
+    return 0 ; 
+}
