@@ -1,4 +1,13 @@
-#include"stdafx.h"
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+// Online C++ compiler to run C++ program online
+//#include"stdafx.h"
 #include<iostream> 
 #include<iomanip>
 #include<stdlib.h>
@@ -22,11 +31,11 @@ void userEntry(char arr[] ,char indexArray[], int n ,char x)
 void display_Grid(char io_Array[] , char indexArray[] )
 {
 
-	cout<<setw(1)<<"|"<<setw(1)<<io_Array[0]<<setw(1)<<"|"<<setw(1)<<io_Array[1]<<setw(1)<<"|"<<setw(1)<<io_Array[2]<<setw(1)<<"|"<<setw(10)<<"|"<<setw(1)<<indexArray[0]<<setw(1)<<"|"<<setw(1)<<indexArray[1]<<setw(1)<<"|"<<setw(1)<<indexArray[2]<<setw(1)<<"|"<<endl;
+	cout<<setw(1)<<"|"<<setw(1)<<io_Array[6]<<setw(1)<<"|"<<setw(1)<<io_Array[7]<<setw(1)<<"|"<<setw(1)<<io_Array[8]<<setw(1)<<"|"<<setw(10)<<"|"<<setw(1)<<indexArray[6]<<setw(1)<<"|"<<setw(1)<<indexArray[7]<<setw(1)<<"|"<<setw(1)<<indexArray[8]<<setw(1)<<"|"<<endl;
 	
 	cout<<setw(1)<<"|"<<setw(1)<<io_Array[3]<<setw(1)<<"|"<<setw(1)<<io_Array[4]<<setw(1)<<"|"<<setw(1)<<io_Array[5]<<setw(1)<<"|"<<setw(10)<<"|"<<setw(1)<<indexArray[3]<<setw(1)<<"|"<<setw(1)<<indexArray[4]<<setw(1)<<"|"<<setw(1)<<indexArray[5]<<setw(1)<<"|"<<endl;
 	
-	cout<<setw(1)<<"|"<<setw(1)<<io_Array[6]<<setw(1)<<"|"<<setw(1)<<io_Array[7]<<setw(1)<<"|"<<setw(1)<<io_Array[8]<<setw(1)<<"|"<<setw(10)<<"|"<<setw(1)<<indexArray[6]<<setw(1)<<"|"<<setw(1)<<indexArray[7]<<setw(1)<<"|"<<setw(1)<<indexArray[8]<<setw(1)<<"|"<<endl;
+	cout<<setw(1)<<"|"<<setw(1)<<io_Array[0]<<setw(1)<<"|"<<setw(1)<<io_Array[1]<<setw(1)<<"|"<<setw(1)<<io_Array[2]<<setw(1)<<"|"<<setw(10)<<"|"<<setw(1)<<indexArray[0]<<setw(1)<<"|"<<setw(1)<<indexArray[1]<<setw(1)<<"|"<<setw(1)<<indexArray[2]<<setw(1)<<"|"<<endl;
 
 }
 
@@ -138,7 +147,7 @@ int main()
 
 	while(count<9)
 	{
-	cout<<"\n-------USER - 1 --------"<<endl; 
+	cout<<"\n-------Player - 1 --------"<<endl; 
 	cout<<"Enter the posion where you want update the your Mark = " ;
 	cin>> n ; 
 	userEntry(io_Array,indexArray, n , 'X') ;
@@ -150,25 +159,25 @@ int main()
 	{
 		if( validate(io_Array, indexArray) == 1 )  
 		{ 
-			cout<<" USER 1 won the Match "<<endl ; 
+			cout<<"\nPlayer 1 won the Match "<<endl ; 
 			break ;
 		}
 		 
 		if( validate(io_Array, indexArray) == 2 ) 
 		{ 
-			cout<<" USER 2 won the Match "<<endl ;
+			cout<<"\nPlayer 2 won the Match "<<endl ;
 			break ;  
 		}
 		
 		if( validate(io_Array, indexArray) == 3 )  
 		{ 
-			cout<<" The match is DRAW "<<endl ;
+			cout<<"\nThe match is DRAW "<<endl ;
 			break ; 
 		}
 		
 	}
 
-	cout<<"\n-------USER - 2 --------"<<endl; 
+	cout<<"\n-------Player - 2 --------"<<endl; 
 	cout<<"Enter the posion where you want update the your Mark = " ;
 	cin>> n ; 
 	userEntry(io_Array,indexArray, n , 'O') ;
@@ -180,19 +189,19 @@ int main()
 	{
 		if( validate(io_Array, indexArray) == 1 )  
 		{ 
-			cout<<" USER 1 won the Match "<<endl ; 
+			cout<<"\nPlayer 1 won the Match "<<endl ; 
 			break ;
 		}
 		 
 		if( validate(io_Array, indexArray) == 2 ) 
 		{ 
-			cout<<" USER 2 won the Match "<<endl ;
+			cout<<"\nPlayer 2 won the Match "<<endl ;
 			break ;  
 		}
 		
 		if( validate(io_Array, indexArray) == 3 )  
 		{ 
-			cout<<" The match is DRAW "<<endl ;
+			cout<<"\nThe match is DRAW "<<endl ;
 			break ; 
 		}
 		
