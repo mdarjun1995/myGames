@@ -2,6 +2,7 @@
 #include<iostream> 
 #include<iomanip>
 #include<stdlib.h>
+#include<string>
 
 
 using namespace std;
@@ -134,12 +135,26 @@ int main()
 	
 	display_Grid(io_Array, indexArray ) ;
 
+	string player1 ,player2 ;
+
+	cout<<endl;
+
+	cout<<"Enter the Name of Player 1 = "  ; 
+	cin >> player1 ;
+	
+	cout<<endl;
+
+	cout<<"Enter the Name of Player 2 = "  ;
+	cin >> player2 ;
+
+	cout<<endl ; 
+
 	int count = 0 ; 
 
 	while(count<9)
 	{
-	cout<<"\n-------Player - 1 --------"<<endl; 
-	cout<<"Enter the posion where you want update the your Mark = " ;
+	cout<<"\n----" << player1<<"'s Turn (X) ----"<<endl; 
+	cout<<"Enter the posion where you want update your Mark = " ;
 	cin>> n ; 
 	userEntry(io_Array,indexArray, n , 'X') ;
 	system("cls") ;
@@ -150,26 +165,28 @@ int main()
 	{
 		if( validate(io_Array, indexArray) == 1 )  
 		{ 
-			cout<<"\nPlayer 1 won the Match "<<endl ; 
+			cout<<endl ;
+			cout<<player1<<" won the Match "<<endl ; 
 			break ;
 		}
 		 
 		if( validate(io_Array, indexArray) == 2 ) 
 		{ 
-			cout<<"\nPlayer 2 won the Match "<<endl ;
+			cout<<endl ;
+			cout<<player2<<" won the Match "<<endl ;
 			break ;  
 		}
 		
 		if( validate(io_Array, indexArray) == 3 )  
 		{ 
-			cout<<"\nThe match is DRAW "<<endl ;
+			cout<<" The match is DRAW "<<endl ;
 			break ; 
 		}
 		
 	}
 
-	cout<<"\n-------Player - 2 --------"<<endl; 
-	cout<<"Enter the posion where you want update the your Mark = " ;
+	cout<<"\n----" << player2<<"'s Turn (O) ----"<<endl;  
+	cout<<"Enter the posion where you want update your Mark = " ;
 	cin>> n ; 
 	userEntry(io_Array,indexArray, n , 'O') ;
 	system("cls") ;
@@ -180,19 +197,21 @@ int main()
 	{
 		if( validate(io_Array, indexArray) == 1 )  
 		{ 
-			cout<<"\nPlayer 1 won the Match "<<endl ; 
+			cout<<endl;
+			cout<<player1<<" won the Match "<<endl ; 
 			break ;
 		}
 		 
 		if( validate(io_Array, indexArray) == 2 ) 
 		{ 
-			cout<<"\nPlayer 2 won the Match "<<endl ;
+			cout<<endl;
+			cout<<player2<<" won the Match "<<endl ; 
 			break ;  
 		}
 		
 		if( validate(io_Array, indexArray) == 3 )  
 		{ 
-			cout<<"\nThe match is DRAW "<<endl ;
+			cout<<" The match is DRAW "<<endl ;
 			break ; 
 		}
 		
